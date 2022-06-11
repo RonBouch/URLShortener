@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AdminPage, AddEdit, About, ViewDetails } from './screens'
+import { AdminPage, NewURL } from './screens'
 import { Header } from './components';
 
 function App() {
@@ -11,13 +11,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <ToastContainer />
+        <ToastContainer position='top-center' />
         <Routes>
           <Route path="/" element={<AdminPage />} />
-          <Route path="/add" element={<AddEdit />} />
-          <Route path="/update/:id" element={<AddEdit />} />
-          <Route path="/view/:id" element={<ViewDetails />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/add" element={<NewURL />} />
+          {/* <Route path="/About" element={<About />} /> */}
         </Routes>
       </div>
     </BrowserRouter>

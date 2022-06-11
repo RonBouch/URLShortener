@@ -9,27 +9,21 @@ const Header = () => {
         if (location.pathname === '/') {
             setActiveTab('AdminPage');
         } else if (location.pathname == '/add') {
-            setActiveTab("AddUser");
-        } else if (location.pathname == '/about') {
-            setActiveTab("About");
+            setActiveTab("addURL");
         }
     }, [location])
 
 
     return (
         <div className='header'>
-            <p className='logo'>User Management System</p>
-            <div className='header-right'>
+            <div className='header-left'>
+                <p className='logo'>URL Shortener</p>
                 <Link to='/'>
-                    <p className={`${activeTab === "AdminPage" ? "active" : ""}`} onClick={() => setActiveTab("AdminPage")}>Home</p>
+                    <p className={`${activeTab === "AdminPage" ? "active" : ""}`} onClick={() => setActiveTab("AdminPage")}>List</p>
                 </Link>
                 <Link to='/add'>
-                    <p className={`${activeTab === "AddUser" ? "active" : ""}`} onClick={() => setActiveTab("AddUser")}>Add User</p>
+                    <p className={`${activeTab === "addURL" ? "active" : ""}`} onClick={() => setActiveTab("addURL")}>New</p>
                 </Link>
-                <Link to='/about'>
-                    <p className={`${activeTab === "About" ? "active" : ""}`} onClick={() => setActiveTab("About")}>About</p>
-                </Link>
-
             </div>
         </div>
     )

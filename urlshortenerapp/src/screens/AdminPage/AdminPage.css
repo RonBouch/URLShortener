@@ -1,14 +1,17 @@
 /*  */
 /* AdminPage */
 /*  */
+.adminPage-container {
+padding:100px;
+}
 
 .styled-table { 
     border-collapse: collapse;
     margin: auto;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-family: sans-serif;
     max-width: 800px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
 
 }
 
@@ -20,7 +23,11 @@
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+    padding: 12px 20px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .styled-table tbody tr{
@@ -57,3 +64,8 @@
     color: black;
 }
 
+.no-results {
+    font-size: 80px;
+    color: rgba(0,0,0,0.30);
+
+}

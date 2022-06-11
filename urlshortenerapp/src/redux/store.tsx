@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './counter';
+import { useDispatch } from 'react-redux';
+import urlStore from './urlStore';
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        urlStore: urlStore,
     },
 })
 
