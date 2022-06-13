@@ -16,13 +16,13 @@ Stage managmant - redux-toolkit
 
 Server: Node.js
 
-**Installation:**
+***Installation:***
 git clone https://github.com/RonBouch/URLShortener.git
 
-**Run:**
+***Run:***
 npm run install-all-deps     
 
-**To start server and client run:**
+***To start server and client run:***
 npm run dev
 
 Open http://localhost:3000 to view it in the browser.
