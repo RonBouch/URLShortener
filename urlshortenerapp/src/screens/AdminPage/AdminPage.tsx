@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './AdminPage.css';
 import URLTable from '../../components/URLTable/URLTable';
-import { getURLs, onDelete } from '../../services/ApiServices';
+import { getURLs } from '../../services/ApiServices';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
@@ -15,7 +15,7 @@ const AdminPage = () => {
 
     return (
         <div className='adminPage-container'>
-            <URLTable data={urls} onDelete={(url) => onDelete(url, dispatch)} />
+            <URLTable data={urls} />
         </div>
     )
 }

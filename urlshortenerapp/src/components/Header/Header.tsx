@@ -6,9 +6,9 @@ const Header = () => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname === '/') {
+        if (location.pathname === '/admin') {
             setActiveTab('AdminPage');
-        } else if (location.pathname == '/add') {
+        } else if (location.pathname == '/admin/add') {
             setActiveTab("addURL");
         }
     }, [location])
@@ -18,10 +18,10 @@ const Header = () => {
         <div className='header'>
             <div className='header-left'>
                 <p className='logo'>URL Shortener</p>
-                <Link to='/'>
+                <Link to='/admin'>
                     <p className={`${activeTab === "AdminPage" ? "active" : ""}`} onClick={() => setActiveTab("AdminPage")}>List</p>
                 </Link>
-                <Link to='/add'>
+                <Link to='/admin/add'>
                     <p className={`${activeTab === "addURL" ? "active" : ""}`} onClick={() => setActiveTab("addURL")}>New</p>
                 </Link>
             </div>

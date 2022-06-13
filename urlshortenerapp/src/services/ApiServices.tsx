@@ -10,6 +10,13 @@ export const getURLs = async (dispatch: any) => {
     }
 }
 
+export const getURL = async (shortUrl: string | undefined) => {
+    const res = await axios.get(`http://localhost:5000/getURL/${shortUrl}`)
+    if (res.status === 200) {
+        return res.data;
+    }
+}
+
 export const onDelete = async (url: string, dispatch: any) => {
     if (window.confirm("Are you sure you want to delete this URL entry")) {
         const res = await axios.delete(`http://localhost:5000/deleteURL/${url}`);
@@ -30,6 +37,17 @@ export const addUrl = async (params: object) => {
             toast.info("URL already exists");
         }
     } catch (error) {
-        toast.error("ERROR: Please try again later"); // TODO
+        toast.error("An Error occurred, Please tyr again later.");
+    }
+}
+
+export const setCount = async (url: string | undefined) => {
+    try {
+        const res = await axios.post('http://localhost:5000/setCount', { url });
+        if (res.status === 200 && res.data.errCode !== -1) {
+            return true;
+        }
+    } catch (error) {
+        console.log("🚀 ~ file: ApiServices.tsx ~ line 54 ~ setCount ~ error", error)
     }
 }

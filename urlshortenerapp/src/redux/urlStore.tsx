@@ -2,12 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface URLState {
   urls: [],
-  count: number,
 }
 
 const initialState: URLState = {
   urls: [],
-  count: 0,
 }
 
 export const urlSlice = createSlice({

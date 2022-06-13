@@ -1,5 +1,8 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { getURLs, setCount, onDelete } from '../../services/ApiServices'
 
+const baseURL = "http://localhost:3000/"
 interface Props {
     data: {
         date: string,
@@ -7,21 +10,28 @@ interface Props {
         shortenerURL: string,
         count: number,
     }[],
-    onDelete: (url: string) => void,
 }
 
-const URLTable = ({ data, onDelete }: Props) => {
+
+const URLTable = ({ data }: Props) => {
+    const dispatch = useDispatch();
+
+    const addClick = async (shortenerURL: string) => {
+        setCount(shortenerURL);
+        getURLs(dispatch);
+    }
+
     return (
         <React.Fragment>
             {data && data.length ?
                 <table className="styled-table">
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th className='short-column'>No.</th>
                             <th>Date</th>
-                            <th>Original URL</th>
+                            <th> Original URL</th>
                             <th>Short URL</th>
-                            <th>Clicks</th>
+                            <th className='short-column'>Clicks</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,13 +39,21 @@ const URLTable = ({ data, onDelete }: Props) => {
                         {data && data.map((item: any, index: number) => {
                             return (
                                 <tr key={index}>
-                                    <th scope='row'>{index + 1}</th>
+                                    <th className='short-column' scope='row'>{index + 1}</th>
                                     <td>{item?.date}</td>
-                                    <td>{item?.originalURL}</td>
-                                    <td>{item?.shortenerURL}</td>
-                                    <td>{item?.count || 0}</td>
                                     <td>
-                                        <button className='btn btn-delete' onClick={() => onDelete(item?.shortenerURL)} >Delete</button>
+                                        <a href={item?.originalURL} onClick={() => addClick(item.shortenerURL)} target="_blank" rel="noreferrer">
+                                            {item?.originalURL}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href={item?.originalURL} onClick={() => addClick(item.shortenerURL)} target="_blank" rel="noreferrer">
+                                            {`${baseURL}${item?.shortenerURL}`}
+                                        </a>
+                                    </td>
+                                    <td className='short-column'>{item?.count || 0}</td>
+                                    <td>
+                                        <button className='btn btn-delete' onClick={() => onDelete(item?.shortenerURL, dispatch)}>Delete</button>
                                     </td>
                                 </tr>
                             )

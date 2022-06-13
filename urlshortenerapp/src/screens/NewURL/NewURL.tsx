@@ -2,51 +2,57 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './NewURL.css';
 import { toast } from 'react-toastify';
-import { LinkResult } from '../../components';
 import { addUrl } from '../../services/ApiServices';
+import { Circles } from 'react-loader-spinner'
 
 const NewURL = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [url, setUrl] = useState('')
     const navigate = useNavigate();
 
-    const addURLToServer = async (shortenerURL: string) => {
+    const addURLToServer = async () => {
         const params = {
             "date": new Date().toLocaleString('en-us', { month: 'long', year: 'numeric', day: 'numeric' }),
-            "originalURL": shortenerURL,
-            "shortenerURL": shortenerURL.slice(0, 10),
+            "originalURL": url,
+            "shortenerURL": `${require("shortid").generate()}`,
+            "count": 0,
         }
 
         const res = await addUrl(params)
         if (res) {
             setTimeout(() => {
-                navigate('/');
-            }, 500);
+                navigate('/admin');
+                setIsLoading(false);
+            }, 1000);
         }
     }
 
+
     const handleSubmit = (e: any) => {
-        e.preventDefault(); //TODO
+        e.preventDefault();
         if (!url) {
-            return toast.warning("Please enter url"); // TODO
+            return toast.warning("Please enter url");
         } else {
-            addURLToServer(url);
+            setIsLoading(true)
+            addURLToServer();
         }
     }
 
     return (
-        <div style={{ marginTop: '100px' }}>
-            <h1>
-                Short URL Generator
-            </h1>
+        <div className='page-container'>
+            <h1>Short URL Generator</h1>
 
-            <form style={{ margin: 'auto', padding: "15px", maxWidth: "400px", alignContent: 'center' }}
-                onSubmit={handleSubmit}
-            >
+            <form className='form-container' onSubmit={handleSubmit}>
                 <input type='text' id="url" name="url" placeholder="Enter Url ... " onChange={(e) => setUrl(e.target.value)} value={url} />
                 <input type='submit' value='Create a Link' />
             </form>
 
-            <LinkResult inputValue={url} />
+            {isLoading && <Circles
+                height="50"
+                width="100%"
+                color='grey'
+                ariaLabel='loading'
+            />}
 
         </div>
     )

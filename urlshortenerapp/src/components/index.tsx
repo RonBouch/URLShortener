@@ -1,7 +1,9 @@
 import Header from "./Header/Header";
-import LinkResult from "./LinkResult/LinkResult";
+import LinkRedirect from "./LinkRedirect/LinkRedirect";
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
 
 export {
     Header,
-    LinkResult,
+    LinkRedirect,
+    NotFoundPage,
 }
