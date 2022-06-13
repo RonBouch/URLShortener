@@ -2,6 +2,11 @@
 React.js (hooks)/Typescript / Node.js.
 
 
+**Simple and fast URL shortener!** <br />
+ShortURL allows to reduce long links from any site, just paste the long URL and click "Create a Link" button. On the New URL Tab, After shortening the URL, check how many clicks it received.
+
+
+
 ![URLShortener](https://user-images.githubusercontent.com/44566416/173323427-b61909f4-a320-4b9d-8f17-ce407aa5e33f.gif)
 
 
