@@ -4,9 +4,9 @@ React.js (hooks)/Typescript / Node.js.
 
 ![URLShortener](https://user-images.githubusercontent.com/44566416/173323427-b61909f4-a320-4b9d-8f17-ce407aa5e33f.gif)
 
-“*” Client/Server written with Typescript
-“*” Client using redux-toolkit
-“*” Responsive website
+“*” Client/Server written with Typescript“*”
+“*” Client using redux-toolkit“*”
+“*” Responsive website“*”
 
 __Built with:__
 React.js 18.1.0v
