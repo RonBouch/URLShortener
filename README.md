@@ -2,8 +2,6 @@
 React.js (hooks)/Typescript / Node.js.
 
 
-https://user-images.githubusercontent.com/44566416/173321835-ee6116b5-840b-4d68-9c34-dc9063a0685d.mov
-
 ![URLShortener](https://user-images.githubusercontent.com/44566416/173323427-b61909f4-a320-4b9d-8f17-ce407aa5e33f.gif)
 
 “*” Client/Server written with Typescript
