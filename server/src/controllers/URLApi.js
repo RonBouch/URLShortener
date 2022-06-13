@@ -37,9 +37,7 @@ export const setCount = (req, res) => {
     let getCounter = urls.find(u => u.shortenerURL === url)
     if (getCounter) {
         getCounter.count = getCounter.count + 1
-        console.log(urls)
         res.send(`${url} - count: ${getCounter.count}`);
-
     } else {
         res.send("Err..");
     }
