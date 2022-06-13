@@ -18,13 +18,13 @@ __Built with:__
 
   Server: Node.js
 
-***Installation:***
+***Installation:***  <br />
   git clone https://github.com/RonBouch/URLShortener.git
 
-***Run:***
+***Run:***  <br />
   npm run install-all-deps     
 
-***To start server and client run:***
+***To start server and client run:***  <br />
   npm run dev
 
   Open http://localhost:3000 to view it in the browser.
