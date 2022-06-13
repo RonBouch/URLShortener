@@ -6,6 +6,8 @@
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "client-install": "cd urlshortenerapp && npm i && cd ..",
+        "install-all-deps": "npm i && npm run client-install",
         "server": "nodemon index.js",
         "client": "cd urlshortenerapp && npm start",
         "dev": "concurrently -n 'server,client' \"npm run server\"  \"npm run client\""
