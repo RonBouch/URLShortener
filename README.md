@@ -8,6 +8,10 @@ React.js (hooks)/Typescript / Node.js.
           - [x] Client using redux-toolkit
           - [x] Responsive website
 
+
+ Markup : - [ ] An uncompleted task
+          - [x] A completed task
+
 __Built with:__
 React.js 18.1.0v
 
